@@ -43,7 +43,7 @@ It contains separate schema files for the model entities and the schema of a CDM
 
 ## History
 
-For detailed and recent changes, please refer to the [CHANGELOG.md](CHANGELOG.md).
+For detailed and recent changes, please refer to the [CHANGELOG.md](./CHANGELOG.md).
 
 ## Licensing
 
