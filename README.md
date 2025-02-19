@@ -9,7 +9,7 @@ Standardized document format to describe metadata about business applications th
 ## Description
 
 The Common Data Model is used as standardized contract to integrate business solutions into SAP Build Work Zone and for other usages,
-e.g. Joule to include links to business applications in the responses. Business solutions expose a _CDM document_ as a JSON document that complies with the JSON schema of CDM to describe their launchable apps and related content. The CDM document contains the list of _CDM entities_ exposed by the business solution. Each CDM entity is founded on a JSON schema describing its attributes and behaviors.
+e.g. in the context of SAP Business AI. Business solutions expose a _CDM document_ as a JSON document that complies with the JSON schema of CDM to describe their launchable apps and related content. The CDM document contains the list of _CDM entities_ exposed by the business solution. Each CDM entity is founded on a JSON schema describing its attributes and behaviors.
 
 The CDM is an evolving model. The latest schema is version 3.2. The version of the schema determines which business content can be included in it.
 
