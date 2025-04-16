@@ -401,3 +401,10 @@ public licenses.
 
 Creative Commons may be contacted at creativecommons.org.
 
+
+=======================================================================
+
+Despite the NonCommercial restriction in the license, the licensor
+explicitly permits recipients to use this specification for internal
+business purposes, including within commercial organizations, provided
+it is not publicly distributed or modified for redistribution.
