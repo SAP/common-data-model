@@ -18,6 +18,10 @@ The CDM is an evolving model. The first published version of the schema is versi
 
 Get started by creating CDM documents based on the JSON schemas provided here.
 
+## Requirements
+
+No setup is required to use the contents of this project.
+
 ## Contributing
 
 The CDM development is driven by SAP internally and we don't accept external contributions for this project.
@@ -39,7 +43,6 @@ We as members, contributors, and leaders pledge to make participation in our com
 The schema files are in folder: [schema/](./schema/).
 
 It contains separate schema files for the model entities and the schema of a CDM document in [cdm-entities.json](./schema/cdm-entities.json)
-
 
 ## History
 
