@@ -1,0 +1,380 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "site",
+  "type": "object",
+  "description": "A site defines an entry point for users to work with CDM content. Only the first site entity in the CDM document will be considered, all further sites will be ignored",
+  "required": [
+    "_version",
+    "identification",
+    "payload"
+  ],
+  "properties": {
+    "_version": {
+      "description": "Version of an entity",
+      "type": "string",
+      "default": "3.2.0",
+      "enum": [
+        "3.2.0",
+        "3.2"
+      ]
+    },
+    "identification": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "identification",
+      "type": "object",
+      "description": "CDM Identification defines identifiers and other meta attributes which are common for all entities",
+      "required": [
+        "id",
+        "entityType"
+      ],
+      "properties": {
+        "title": {
+          "description": "Title of the entity",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\{\\{[^\\W][\\w\\.\\-\\|]*\\}\\}$"
+            },
+            {
+              "description": "Fixed, untranslated string in specific language",
+              "type": "string"
+            }
+          ]
+        },
+        "description": {
+          "description": "Description of the entity",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\{\\{[^\\W][\\w\\.\\-\\|]*\\}\\}$"
+            },
+            {
+              "description": "Fixed, untranslated string in specific language",
+              "type": "string"
+            }
+          ]
+        },
+        "entityType": {
+          "description": "Type (enumeration) of the entity",
+          "type": "string",
+          "enum": [
+            "group",
+            "catalog",
+            "businessapp",
+            "urltemplate",
+            "viztype",
+            "page",
+            "space",
+            "workpage",
+            "site"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "maxLength": 70,
+          "pattern": "^[\\w\\-:@+~.#\\/]+$",
+          "description": "ID of the entity; it needs to be stable over the entire lifecycle of the entity and unique per entity type exposed via the same content channel"
+        },
+        "providerId": {
+          "description": "The parent content provider of the entity",
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[\\w\\-:@+~.#\\/]+$"
+        },
+        "i18n": {
+          "type": "string"
+        },
+        "softComponent": {
+          "type": "string"
+        }
+      },
+      "definitions": {}
+    },
+    "payload": {
+      "type": "object",
+      "required": [
+        "siteConfig"
+      ],
+      "properties": {
+        "siteConfig": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "title": "Site Configuration",
+          "description": "Configuration of a site",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "description": "Title of the site",
+              "type": "string"
+            },
+            "description": {
+              "description": "Additional description of the site",
+              "type": "string"
+            },
+            "alias": {
+              "description": "Alias of the site",
+              "type": "string"
+            },
+            "browserSettings": {
+              "description": "Browser settings",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "optimizedSiteLoading": {
+                  "description": "Enables the caching of a site in the browser cache",
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "asynchronousModuleLoading": {
+                  "description": "When using asynchronous loading, the browser loads the site and apps that include SAPUI5 modules in parallel",
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "browserFeatureAccess": {
+                  "description": "Enables applications to access and use browser features, such as camera and geo location",
+                  "type": "boolean",
+                  "default": "true"
+                }
+              }
+            },
+            "userCapabilities": {
+              "description": "User capabilities of the site",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "personalizationSupported": {
+                  "description": "Ensures that the App Finder and Edit Home Page options are visible in the user actions menu",
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "themeSelectionSupported": {
+                  "description": "Enables an end user to select a different theme",
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "languageSelectionSupported": {
+                  "description": "Enables an end user to select a different language for the site",
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "supportedLanguages": {
+                  "description": "List of languages the end user can select. Entries should a BCP47 language tags",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": [
+                    "en"
+                  ]
+                },
+                "sapMobileStartSupported": {
+                  "description": "Enables users to install and register the mobile app at runtime",
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "enterpriseSearchSupported": {
+                  "description": "Enables integration with Enterprise Search",
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "groupDisplayModeEnabled": {
+                  "description": "Enables an end user to choose whether to show all groups at once (true) or show one group at a time (false) in the Home Page screen in the Settings dialog box",
+                  "type": "boolean",
+                  "default": "true"
+                }
+              }
+            },
+            "services": {
+              "description": "Services used by the site",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "keyUserAdaptation": {
+                  "description": "Enables key users to adapt the UI of HTML5 apps at runtime",
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "sapCompanion": {
+                  "description": "Enables in-app help from the “?” icon in the UI shell header",
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "sapCompanionParameters": {
+                  "description": "JSON object with a map of parameter/value pairs that are required to retrieve the help content",
+                  "type": "object"
+                },
+                "sapDigitalAssistant": {
+                  "description": "Enables the Digital Assistant in this site",
+                  "type": "boolean",
+                  "default": "false"
+                }
+              }
+            },
+            "displaySettings": {
+              "description": "Display settings",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "launchpadViewMode": {
+                  "description": "Mode how to display apps in the launchpad UI",
+                  "type": "string",
+                  "enum": [
+                    "Groups",
+                    "SpacesAndPages",
+                    "SpacesAndWorkPages"
+                  ],
+                  "default": "Groups"
+                },
+                "tileSize": {
+                  "description": "Determines the tile size behavior",
+                  "type": "string",
+                  "enum": [
+                    "Responsive",
+                    "Small"
+                  ],
+                  "default": "Responsive"
+                },
+                "showSourceSystemNames": {
+                  "description": "Determines if source system information is shown on widgets. The information provided is the destination property (sap-provider-label) or the content provider ID when no value is defined. This setting is only relevant when Spaces and Pages view mode is switched on.",
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "pageWidth": {
+                  "description": "Defines the maximum width of a page that its content can fill. 'FullWidth' uses the complete width of the window. ‘Large’ uses 1520px, 'Medium' uses 1200px. If the window size exceeds the sizes for ‘Large’ and ‘Medium’ the page content is centered by default.",
+                  "type": "string",
+                  "enum": [
+                    "Medium",
+                    "Large",
+                    "FullWidth"
+                  ]
+                }
+              }
+            },
+            "displayVisibilitySettings": {
+              "description": "Screen display settings",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "showSearchInShellHeader": {
+                  "description": "Ensures that the Search field appears in the shell header",
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "showOrHideGroupsAndSections": {
+                  "description": "Enables an end user to hide or show a group from their home page",
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "showNotifications": {
+                  "description": "Shows the Notifications icon in the launchpad shell bar",
+                  "type": "boolean",
+                  "default": "false"
+                },
+                "showAllMyApps": {
+                  "description": "Displays the All My Apps navigation option",
+                  "type": "boolean",
+                  "default": "true"
+                }
+              }
+            },
+            "displayLocationSettings": {
+              "description": "Display location settings",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "appFinder": {
+                  "description": "Determines where the quick access to the App Finder appears",
+                  "type": "string",
+                  "enum": [
+                    "UserActionsMenu",
+                    "ShellHeader"
+                  ],
+                  "default": "UserActionsMenu"
+                },
+                "editHomePage": {
+                  "description": "Determines where the quick access to Edit Home Page appears",
+                  "type": "string",
+                  "enum": [
+                    "UserActionsMenu",
+                    "ShellHeader"
+                  ],
+                  "default": "UserActionsMenu"
+                },
+                "settings": {
+                  "description": "Determines where the quick access to the Settings screen appears",
+                  "type": "string",
+                  "enum": [
+                    "UserActionsMenu",
+                    "ShellHeader"
+                  ],
+                  "default": "UserActionsMenu"
+                }
+              }
+            },
+            "personalizationSettings": {
+              "description": "Personalization settings",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "userHomepageSupported": {
+                  "description": "Makes a personalizable homepage available to each end user",
+                  "type": "boolean",
+                  "default": "false"
+                }
+              }
+            },
+            "sessionTimeoutSettings": {
+              "description": "Session timeout settings",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "sessionTimeoutEnabled": {
+                  "description": "Ensures that users are automatically logged out on session timeout",
+                  "type": "boolean",
+                  "default": "true"
+                },
+                "sessionDuration": {
+                  "description": "Time in minutes that a session remains open when no actions are performed by the user. The duration must be shorter than that of the App Router",
+                  "type": "number",
+                  "default": 20
+                },
+                "sessionTimeoutAlertTime": {
+                  "description": "Time in minutes before the session times out to alert the user",
+                  "type": "number",
+                  "default": 3
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "texts": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "texts",
+      "type": "array",
+      "description": "CDM Design Time - Entity Texts",
+      "items": {
+        "type": "object",
+        "description": "Contains translation dictionary of a specific locale",
+        "properties": {
+          "locale": {
+            "type": "string",
+            "description": "The locale of the specific translated dictionary",
+            "pattern": "^((?:[A-Za-z]{2,3}(?:[-_][A-Za-z]{3}){0,3})?|[A-Za-z]{4}|[A-Za-z]{5,8})(?:[-_]([A-Za-z]{4}))?(?:[-_]([A-Za-z]{2}|[0-9]{3}))?((?:[-_][0-9A-Za-z]{5,8}|[-_][0-9][0-9A-Za-z]{3})*)((?:[-_][0-9A-WYZa-wyz](?:[-_][0-9A-Za-z]{2,8})+)*)(?:[-_]([Xx](?:[-_][0-9A-Za-z]{1,8})+))?([-_][\\w]+)?$"
+          },
+          "textDictionary": {
+            "type": "object",
+            "patternProperties": {
+              "^[\\w\\W]*$": {
+                "type": "string",
+                "description": "The translated string value"
+              }
+            }
+          }
+        }
+      },
+      "definitions": {}
+    }
+  }
+}
