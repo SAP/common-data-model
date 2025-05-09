@@ -42,7 +42,7 @@ We as members, contributors, and leaders pledge to make participation in our com
 
 The schema files are in folder: [schema/](./schema/).
 
-It contains separate schema files for the model entities and the schema of a CDM document in [cdm-entities.json](./schema/cdm-entities.json)
+It contains separate schema files for the model entities and the schema of a CDM document in [cdmentities.json](./schema/cdmentities.json)
 
 ## History
 
