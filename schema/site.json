@@ -123,17 +123,17 @@
                 "optimizedSiteLoading": {
                   "description": "Enables the caching of a site in the browser cache",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 },
                 "asynchronousModuleLoading": {
                   "description": "When using asynchronous loading, the browser loads the site and apps that include SAPUI5 modules in parallel",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 },
                 "browserFeatureAccess": {
                   "description": "Enables applications to access and use browser features, such as camera and geo location",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 }
               }
             },
@@ -145,17 +145,17 @@
                 "personalizationSupported": {
                   "description": "Ensures that the App Finder and Edit Home Page options are visible in the user actions menu",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 },
                 "themeSelectionSupported": {
                   "description": "Enables an end user to select a different theme",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 },
                 "languageSelectionSupported": {
                   "description": "Enables an end user to select a different language for the site",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 },
                 "supportedLanguages": {
                   "description": "List of languages the end user can select. Entries should a BCP47 language tags",
@@ -170,17 +170,17 @@
                 "sapMobileStartSupported": {
                   "description": "Enables users to install and register the mobile app at runtime",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 },
                 "enterpriseSearchSupported": {
                   "description": "Enables integration with Enterprise Search",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 },
                 "groupDisplayModeEnabled": {
                   "description": "Enables an end user to choose whether to show all groups at once (true) or show one group at a time (false) in the Home Page screen in the Settings dialog box",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 }
               }
             },
@@ -192,12 +192,12 @@
                 "keyUserAdaptation": {
                   "description": "Enables key users to adapt the UI of HTML5 apps at runtime",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 },
                 "sapCompanion": {
                   "description": "Enables in-app help from the “?” icon in the UI shell header",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 },
                 "sapCompanionParameters": {
                   "description": "JSON object with a map of parameter/value pairs that are required to retrieve the help content",
@@ -206,7 +206,7 @@
                 "sapDigitalAssistant": {
                   "description": "Enables the Digital Assistant in this site",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 }
               }
             },
@@ -237,7 +237,7 @@
                 "showSourceSystemNames": {
                   "description": "Determines if source system information is shown on widgets. The information provided is the destination property (sap-provider-label) or the content provider ID when no value is defined. This setting is only relevant when Spaces and Pages view mode is switched on.",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 },
                 "pageWidth": {
                   "description": "Defines the maximum width of a page that its content can fill. 'FullWidth' uses the complete width of the window. ‘Large’ uses 1520px, 'Medium' uses 1200px. If the window size exceeds the sizes for ‘Large’ and ‘Medium’ the page content is centered by default.",
@@ -258,22 +258,22 @@
                 "showSearchInShellHeader": {
                   "description": "Ensures that the Search field appears in the shell header",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 },
                 "showOrHideGroupsAndSections": {
                   "description": "Enables an end user to hide or show a group from their home page",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 },
                 "showNotifications": {
                   "description": "Shows the Notifications icon in the launchpad shell bar",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 },
                 "showAllMyApps": {
                   "description": "Displays the All My Apps navigation option",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 }
               }
             },
@@ -319,7 +319,7 @@
                 "userHomepageSupported": {
                   "description": "Makes a personalizable homepage available to each end user",
                   "type": "boolean",
-                  "default": "false"
+                  "default": false
                 }
               }
             },
@@ -331,7 +331,7 @@
                 "sessionTimeoutEnabled": {
                   "description": "Ensures that users are automatically logged out on session timeout",
                   "type": "boolean",
-                  "default": "true"
+                  "default": true
                 },
                 "sessionDuration": {
                   "description": "Time in minutes that a session remains open when no actions are performed by the user. The duration must be shorter than that of the App Router",
