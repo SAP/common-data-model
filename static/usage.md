@@ -13,7 +13,7 @@ Flag explanations:
 - `--verbose`: Provides detailed validation output
 - `-c ajv-formats`: Loads the ajv-formats plugin for format validation
 - `--spec=draft7`: Uses JSON Schema Draft 7 specification
-- `-s`: Specifies the schema file (cdmEntities.json)
+- `-s`: Specifies the schema file (cdmentities.json)
 - `-d`: Specifies the data/document file to validate
 
 ## Code completion in IDEs
