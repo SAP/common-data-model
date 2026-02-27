@@ -44,6 +44,10 @@ The schema files are in folder: [schema/](./schema/).
 
 It contains separate schema files for the model entities and the schema of a CDM document in [cdmentities.json](./schema/cdmentities.json)
 
+## Usage
+
+Learn how to integrate and apply the CDM schema in your projects. See the [Usage Guide](./static/usage.md) for examples and instructions.
+
 ## History
 
 For detailed and recent changes, please refer to the [CHANGELOG.md](./CHANGELOG.md).
