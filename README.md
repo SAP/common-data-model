@@ -54,4 +54,4 @@ For detailed and recent changes, please refer to the [CHANGELOG.md](./CHANGELOG.
 
 ## Licensing
 
-Copyright 2025 SAP SE or an SAP affiliate company and common-data-model contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/common-data-model).
+Copyright 2025-2026 SAP SE or an SAP affiliate company and common-data-model contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/common-data-model).
